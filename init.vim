@@ -157,8 +157,11 @@ set termguicolors
 let g:gruvbox_contrast_light = 'hard'
 colorscheme gruvbox
 
-
-
+" Force pure black background and bold high-contrast text for spelling
+highlight SpellBad cterm=undercurl,bold gui=undercurl,bold guifg=#fb4934 guibg=#282828 guisp=#fb4934 ctermfg=167 ctermbg=235
+highlight SpellCap cterm=undercurl,bold gui=undercurl,bold guifg=#fabd2f guibg=#282828 guisp=#fabd2f ctermfg=214 ctermbg=235
+highlight SpellLocal cterm=undercurl gui=undercurl guifg=#83a598 guibg=#282828 guisp=#83a598 ctermfg=109 ctermbg=235
+highlight SpellRare cterm=undercurl gui=undercurl guifg=#d3869b guibg=#282828 guisp=#d3869b ctermfg=175 ctermbg=235
 " --- CursorLine Management ---
 
 augroup ActiveCursorLine
@@ -187,7 +190,7 @@ augroup END
 
 "set cursorline
 set laststatus=0
-set cmdheight=0
+set cmdheight=1
 "set number relativenumber
 set mouse=a
 set nocompatible
@@ -257,6 +260,7 @@ require'nvim-treesitter'.setup {
 
 	highlight = {
 		enable = true,
+		additional_vim_regex_highlighting = false,
 	},
 
 	indent = {
